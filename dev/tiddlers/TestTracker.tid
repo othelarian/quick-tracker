@@ -1,0 +1,34 @@
+created: 20201115111541104
+modified: 20201115231641645
+tags: 
+title: TestTracker
+type: text/vnd.tiddlywiki
+
+<<list-tagged-draggable
+tag:"$:/tags/quick-tracker/priority"
+subFilter:"remove[$:/othy/quick-tracker/Priority]"
+>>
+
+$:/othy/quick-tracker/Priority
+
+$:/othy/quick-tracker/settings
+
+
+<$set name="nb_1"
+filter="[tag[$:/tags/quick-tracker/priority]count[]]"
+>
+nb priorities: <<nb_1>>
+</$set>
+
+
+
+<details>
+  <summary>your title here</summary>
+"""
+could be a list like so
+- lorem
+- durem
+- pipo
+- pow pow
+"""
+</details>

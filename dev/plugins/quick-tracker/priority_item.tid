@@ -1,0 +1,5 @@
+title: $:/othy/quick-tracker/priorityItem
+
+<$draggable>{{!!name}}</$draggable>
+
+<$droppable>blabla<$droppable>

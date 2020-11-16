@@ -1,0 +1,28 @@
+title: $:/othy/quick-tracker/Tracker
+caption: Tracker
+tags: $:/tags/SideBar
+
+<$set name="curr_len" filter="[tag[$:/tags/quick-tracker]status[active]count[]]">
+<$set name="limit_value"
+filter="[[$:/othy/quick-tracker/settings]get[shortlist_len]remove[0]]"
+emptyValue=<<curr_len>> >
+
+settings: {{$:/othy/quick-tracker/settings!!shortlist_len}}
+
+limit: <<limit_value>>
+
+<$list filter="[tag[$:/tags/quick-tracker]status[active]limit<limit_value>]" variable="item"
+emptyMessage="There is no task to handle">
+
+<$transclude tiddler=<<item>> field="name"/>
+
+</$list>
+
+<$button message="tm-modal" param="Quick-Tracker">
+<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="0"/>
+Manage
+</$button>
+
+</$set>
+</$set>
+

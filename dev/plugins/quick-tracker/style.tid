@@ -1,0 +1,12 @@
+title: $:/othy/quick-tracker/Style
+tags: $:/tags/Stylesheet
+
+.quick-tracker-checklabel {margin-left: 20px;}
+.quick-tracker-done {text-decoration: line-through;}
+.quick-tracker-button-right {text-align: right;}
+
+.quick-tracker-priority-must {font-style: bold; color: red;}
+.quick-tracker-priority-should {color: orange;}
+.quick-tracker-priority-could {color: yellow;}
+.quick-tracker-priority-wont {color: green;}
+

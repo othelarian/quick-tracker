@@ -1,0 +1,7 @@
+title: $:/othy/quick-tracker/Template
+tags: $:/tags/quick-tracker
+status: active
+priority: ?
+name: ???
+
+Task: <<!!name>>

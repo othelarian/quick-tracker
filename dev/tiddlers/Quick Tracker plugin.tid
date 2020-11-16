@@ -1,0 +1,51 @@
+created: 20201114140321570
+modified: 20201115135604373
+tags: 
+title: Quick Tracker plugin
+type: text/vnd.tiddlywiki
+
+! What this plugin do?
+
+I always wanting a task tracker / todo list, but I also have some prerequisites: 
+
+* a tracker forgettable, like you know it's there, but it's not obviously visible
+* still quickly accessible, in one click I can reach it
+* without working with tags, to avoid polluting TW5 working a lot with tags
+* story unrelated, to avoid loosing it inside, I wanted something I can invoke and then revoke easily
+* self contained, with minimum impact on tiddlers created inside the TW5 to make it work (only one tiddler is overwritten to save configuration)
+* with priority system integrated and configurable
+
+That's quite a lot in fact, but I was ready to invest time in it ;-) 
+
+! I want to try it!
+
+???
+
+! Installation
+
+Drag'n'drop the link below to get the Quick Tracker plugin:
+
+$:/plugins/othy/quick-tracker
+
+! Associated history
+
+There is a little bit of history behind this plugin. In fact, I was starting my entity-manager plugin, and I feel the need to have a better task tracker than the one I previously built with Shiraz plugin. As I was looking forward to a better solution I tought "this will be a great way to learn a lot and make some tests to start entity-manager with some solid foundation". So [[Quick Tracker plugin]] started as a prototype inside the entity-manager project, and then I forked it in its own repository as it became clearer that this plugin was now big enough to have its own repository.
+
+! Still in progress
+
+This plugin IS NOT USABLE right now. I have a lot to do to make it work properly. But I'm getting closer.
+
+Things I have to do:
+
+* apply priority style inside the showItem macro (manager.tid)
+* use priority to sort lists
+* add to customizer a reset button
+* add a standard 3 priorities button to customizer
+* build the short list in the sidebar tracker -> test with priorities
+* insert statistics about task completion
+* delete priority
+* set custom color for each priority
+* define default piority to use
+* change priority by group (checkboxed)
+* write "I want to try it!"
+* github page

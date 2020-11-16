@@ -1,0 +1,11 @@
+{
+  "title": "$:/plugins/othy/quick-tracker",
+  "name": "Quick Tracker",
+  "description": "A simple and quick way to know what you have to do next",
+  "author": "othelarian",
+  "version": "1.0.0",
+  "core-version": ">=5.1.22",
+  "plugin-type": "plugin",
+  "list": "readme customizer",
+  "source": "https://github.com/othelarian/quick-tracker"
+}

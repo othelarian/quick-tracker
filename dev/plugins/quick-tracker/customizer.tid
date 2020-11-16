@@ -1,0 +1,70 @@
+title: $:/plugins/othy/quick-tracker/customizer
+caption: Quick-Tracker
+tags: $:/tags/ControlPanel/Settings
+
+\define create-priority-action()
+<$set name="counting" filter="[tag[$:/tags/quick-tracker/priority]count[]]">
+<$action-createtiddler
+$basetitle="$:/othy/quick-tracker/priority"
+$template="$:/othy/quick-tracker/Priority"
+name={{$:/othy/quick-tracker/settings!!priority_new}}
+rank=<<counting>>
+/>
+<$set name="countadd" filter="[<counting>add[1]]">
+<$action-setfield $tiddler="$:/othy/quick-tracker/settings"
+$field="priority_nb" $value=<<countadd>> />
+</$set>
+</$set>
+<$action-setfield $tiddler="$:/othy/quick-tracker/settings"
+$field="priority_new" $value=""/>
+\end
+
+\define delete-priority-action()
+\end
+
+! Options
+
+If you want to define the length of the list in the sidebar, it's here ('0' value means 'no limit', and negative number work by eliminating the number of task from the end of the list).
+
+sidebar list length: <$edit-text
+type="number" placeholder="0" tiddler="$:/othy/quick-tracker/settings" field="shortlist_len" />
+
+! Priority list
+
+Here you can define your own priorities, and order them as you wish (and with custom color!).
+
+<$reveal type="match" text="0" state="$:/othy/quick-tracker/settings!!priority_nb">
+
+---
+
+TODO : button if list's empty to generate three basic priorities
+
+<$button>
+<$action-setfield
+Add 3 basic priorities</$button>
+
+---
+
+</$reveal>
+
+
+
+TODO : if there is some priority, define which one is the default one
+
+<$list variable="item"
+filter="[tag[$:/tags/quick-tracker/priority]sort[rank]]"
+emptyMessage="There is no priority right now, use the input below to add one">
+
+<$transclude tiddler=<<item>> field="name"/>
+
+{{item!!name}}
+
+</$list>
+
+Add a priority (append to bottom): <$edit-text
+placeholder="priority name" tiddler="$:/othy/quick-tracker/settings" field="priority_new" />
+<$reveal type="nomatch" text="" state="$:/othy/quick-tracker/settings!!priority_new">
+<$button>
+<<create-priority-action>>
+{{$:/core/images/new-button}}</$button>
+</$reveal>

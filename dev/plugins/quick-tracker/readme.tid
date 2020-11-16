@@ -1,0 +1,20 @@
+title: $:/plugins/othy/quick-tracker/readme
+
+The Quick Tracker plugin is a easy and quick way to manage tasks inside a TW5 project. The creation of this plugin was driven by this goals:
+
+* A forgettable tracker, letting you forget it but still here
+* Quickly accessible, one click and you reach it
+* Tag free to avoid polluting project with a heavy use of tags
+* Disconnected of the story (the tracker never popup inside the story)
+* Search invisible (everything is hidden inside shadow tiddlers or plugin tiddlers)
+* Builtin and configurable priority system
+
+You can find the source code, a user guide, and other informations about this plugin on [[the official webpage|https://othelarian.github.com/quick-tracker/]].
+
+If you want to customize this plugin, you can reach the customizer in three different way:
+
+* In Control Panel, looking for customizer in the Settings tab
+* In Control Panel again, in the Plugins tab, close to this readme in the Quick Tracker plugin description
+* In the Quick Tracker manager, the buttons in the top right corner
+
+The best way is by using the third method, it will toggle between the tasks list and the customizer.

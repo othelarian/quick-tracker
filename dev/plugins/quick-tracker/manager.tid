@@ -1,0 +1,73 @@
+title: Quick-Tracker
+footer:
+
+\define showItem(decor:"")
+<$checkbox tiddler=<<item>> field="status" unchecked="active" checked="done"
+default="active" class="quick-tracker-checklabel">
+$decor$<$transclude tiddler=<<item>> field="name"/>$decor$
+</$checkbox>
+\end
+
+<div class="quick-tracker-button-right">
+<$button>
+<$reveal type="match" state="$:/othy/quick-tracker/settings!!custom_tog" text="0">
+<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="1"/>
+{{$:/core/images/options-button}}
+</$reveal>
+<$reveal type="match" state="$:/othy/quick-tracker/settings!!custom_tog" text="1">
+<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="0"/>
+{{$:/core/images/list-bullet}}
+</$reveal>
+</$button>
+<$button message="tm-close-tiddler" to="Quick-Tracker">
+<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="0"/>
+{{$:/core/images/close-button}}</$button>
+</div>
+
+<$reveal type="match" state="$:/othy/quick-tracker/settings!!custom_tog" text="0">
+
+TODO : statistics
+
+Active tasks:
+
+<$list filter="[tag[$:/tags/quick-tracker]status[active]sort[name]sort[priority]]"
+variable="item" emptyMessage="No task to handle">
+
+<<showItem>>
+
+<<item>>
+ {{<<item>>##name}}  ----
+
+</$list>
+
+Already done:
+
+<$list filter="[tag[$:/tags/quick-tracker]status[done]sort[]]"
+variable="item" emptyMessage="No task done yet">
+
+<<showItem decor:"~~">>
+
+</$list>
+
+New task: <$edit-text tiddler="$:/othy/quick-tracker/settings" field="newtitle"/>
+<$reveal type="nomatch" text="" state="$:/othy/quick-tracker/settings!!newtitle">
+<$button>
+<$action-createtiddler
+$basetitle="$:/othy/quick-tracker/task"
+name={{$:/othy/quick-tracker/settings!!newtitle}}
+$template="$:/othy/quick-tracker/Template"/>
+<$action-setfield
+$tiddler="$:/othy/quick-tracker/settings"
+$field="newtitle" $value=""/>
+Add
+</$button>
+</$reveal>
+
+</$reveal>
+
+
+<$reveal type="match" state="$:/othy/quick-tracker/settings!!custom_tog" text="1">
+
+{{$:/plugins/othy/quick-tracker/customizer}}
+
+</$reveal>
