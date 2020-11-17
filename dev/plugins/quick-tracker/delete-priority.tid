@@ -1,0 +1,43 @@
+title: $:/othy/quick-tracker/delete-priority.js
+type: application/javascript
+module-type: widget
+
+(function() {
+    "use strict";
+
+    var Widget = require("$:/core/modules/widgets/widget.js").widget;
+
+    var DeletePriorityWidget = function(parseTreeNode, options) {
+        this.initialise(parseTreeNode, options);
+    };
+
+    DeletePriorityWidget.prototype = new Widget();
+
+    DeletePriorityWidget.prototype.render = function(parent, nextSibling) {
+        this.computeAttributes();
+        this.execute();
+    };
+
+    DeletePriorityWidget.prototype.refresh = function(changedTiddlers) {
+        //
+        //
+    };
+
+    DeletePriorityWidget.prototype.execute = function() {
+        //
+        console.log("delete priority execute");
+        //
+    };
+
+    DeletePriorityWidget.prototype.invokeAction = function(
+        triggeringWidget, event
+    ) {
+        //
+        //
+        console.log("delete priority invoked");
+        //
+    };
+
+    exports["delete-priority"] = DeletePriorityWidget;
+
+})();

@@ -1,5 +1,5 @@
 created: 20201115111541104
-modified: 20201115231641645
+modified: 20201116234903417
 tags: 
 title: TestTracker
 type: text/vnd.tiddlywiki
@@ -13,6 +13,10 @@ $:/othy/quick-tracker/Priority
 
 $:/othy/quick-tracker/settings
 
+<$button>
+<$delete-priority />
+test delete-priority
+</$button>
 
 <$set name="nb_1"
 filter="[tag[$:/tags/quick-tracker/priority]count[]]"
