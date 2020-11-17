@@ -19,23 +19,33 @@ module-type: widget
     };
 
     DeletePriorityWidget.prototype.refresh = function(changedTiddlers) {
-        //
-        //
+        var changedAttributes = this.computeAttributes();
+        if (changedAttributes["$tiddler"]) {
+            this.refreshSelf();
+            return true;
+        }
+        return this.refreshChildren(changedTiddlers);
     };
 
     DeletePriorityWidget.prototype.execute = function() {
-        //
-        console.log("delete priority execute");
-        //
+        this.actionTiddler = this.getAttribute("$tiddler");
     };
 
     DeletePriorityWidget.prototype.invokeAction = function(
         triggeringWidget, event
     ) {
+        var rank = parseInt(this.wiki.getTiddler(this.actionTiddler).getFieldString("rank"));
+        var filter = "[tag[$:/tags/quick-tracker/priority]sort[rank]rest["+(rank + 1)+"]]";
+        var listTiddlers = this.wiki.filterTiddlers(filter);
+        this.wiki.deleteTiddler(this.actionTiddler);
+        for (var i = 0; i<listTiddlers.length; i++) {
+            var tmpRank = parseInt(this.wiki.getTiddler(listTiddlers[i]).getFieldString("rank"));
+            this.wiki.setText(listTiddlers[i],"rank","",tmpRank-1,{});
+        }
         //
+        // TODO : update tasks with the deleted priority
         //
-        console.log("delete priority invoked");
-        //
+        return true;
     };
 
     exports["delete-priority"] = DeletePriorityWidget;

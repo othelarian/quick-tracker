@@ -1,17 +1,23 @@
 created: 20201115111541104
-modified: 20201116234903417
+modified: 20201117105444289
 tags: 
 title: TestTracker
 type: text/vnd.tiddlywiki
 
-<<list-tagged-draggable
-tag:"$:/tags/quick-tracker/priority"
-subFilter:"remove[$:/othy/quick-tracker/Priority]"
->>
-
 $:/othy/quick-tracker/Priority
 
 $:/othy/quick-tracker/settings
+
+
+<$list filter="[tag[$:/tags/quick-tracker/priority]sort[rank]]" variable="item">
+
+<$link to=<<item>>><$transclude tiddler=<<item>> field="name"/></$link> - 
+<$transclude tiddler=<<item>> field="rank"/>
+<$button>
+<$delete-priority $tiddler=<<item>>/>
+del</$button>
+
+</$list>
 
 <$button>
 <$delete-priority />

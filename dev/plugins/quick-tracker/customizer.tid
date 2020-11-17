@@ -19,9 +19,6 @@ $field="priority_nb" $value=<<countadd>> />
 $field="priority_new" $value=""/>
 \end
 
-\define delete-priority-action()
-\end
-
 ! Options
 
 If you want to define the length of the list in the sidebar, it's here ('0' value means 'no limit', and negative number work by eliminating the number of task from the end of the list).
@@ -55,9 +52,15 @@ TODO : if there is some priority, define which one is the default one
 filter="[tag[$:/tags/quick-tracker/priority]sort[rank]]"
 emptyMessage="There is no priority right now, use the input below to add one">
 
+<div style="width:100%;max-width:450px;">
 <$transclude tiddler=<<item>> field="name"/>
-
-{{item!!name}}
+<span style="float:right;">
+<$button>
+<$delete-priority $tiddler=<<item>>/>
+{{$:/core/images/delete-button}}</$button>
+</span>
+<span style="clear:both;"></span>
+</div>
 
 </$list>
 
