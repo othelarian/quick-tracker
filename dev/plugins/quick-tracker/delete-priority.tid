@@ -35,13 +35,17 @@ module-type: widget
         triggeringWidget, event
     ) {
         var rank = parseInt(this.wiki.getTiddler(this.actionTiddler).getFieldString("rank"));
-        var filter = "[tag[$:/tags/quick-tracker/priority]sort[rank]rest["+(rank + 1)+"]]";
-        var listTiddlers = this.wiki.filterTiddlers(filter);
+        var filter = "[tag[$:/tags/quick-tracker/priority]sort[rank]";
+        var listTiddlers = this.wiki.filterTiddlers(filter+"rest["+(rank+1)+"]]");
         this.wiki.deleteTiddler(this.actionTiddler);
         for (var i = 0; i<listTiddlers.length; i++) {
             var tmpRank = parseInt(this.wiki.getTiddler(listTiddlers[i]).getFieldString("rank"));
             this.wiki.setText(listTiddlers[i],"rank","",tmpRank-1,{});
         }
+        this.wiki.setText(
+            "$:/othy/quick-tracker/settings", "priority_nb", "",
+            this.wiki.filterTiddlers(filter+"]").length, {}
+        );
         //
         // TODO : update tasks with the deleted priority
         //

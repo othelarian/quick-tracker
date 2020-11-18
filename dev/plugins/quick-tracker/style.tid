@@ -5,6 +5,22 @@ tags: $:/tags/Stylesheet
 .quick-tracker-done {text-decoration: line-through;}
 .quick-tracker-button-right {text-align: right;}
 
+.quick-tracker-manager-title {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.quick-tracker-span-right {float: right;}
+
+.quick-tracker-priority-table {
+    width: 100%;
+    max-width: 700px;
+}
+
+.quick-tracker-priority-td-color {}
+.quick-tracker-priority-td-btn {width: 30px;text-align:center;}
+.quick-tracker-boxed-btn {padding: 5px;}
+
 .quick-tracker-priority-must {font-style: bold; color: red;}
 .quick-tracker-priority-should {color: orange;}
 .quick-tracker-priority-could {color: yellow;}

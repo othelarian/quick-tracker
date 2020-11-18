@@ -1,0 +1,20 @@
+title: $:/othy/quick-tracker/manager-header
+
+<div>
+<h2 class="quick-tracker-manager-title">Quick tracker - Manager</h2>
+<span class="quick-tracker-span-right">
+<$button>
+<$reveal type="match" state="$:/othy/quick-tracker/settings!!custom_tog" text="0">
+<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="1"/>
+{{$:/core/images/options-button}}
+</$reveal>
+<$reveal type="match" state="$:/othy/quick-tracker/settings!!custom_tog" text="1">
+<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="0"/>
+{{$:/core/images/list-bullet}}
+</$reveal>
+</$button>
+<$button message="tm-close-tiddler" to="Quick-Tracker">
+<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="0"/>
+{{$:/core/images/close-button}}</$button>
+</span>
+</div>

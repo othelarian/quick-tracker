@@ -1,5 +1,6 @@
 title: Quick-Tracker
 footer:
+subtitle: {{$:/othy/quick-tracker/manager-header}}
 
 \define showItem(decor:"")
 <$checkbox tiddler=<<item>> field="status" unchecked="active" checked="done"
@@ -7,22 +8,6 @@ default="active" class="quick-tracker-checklabel">
 $decor$<$transclude tiddler=<<item>> field="name"/>$decor$
 </$checkbox>
 \end
-
-<div class="quick-tracker-button-right">
-<$button>
-<$reveal type="match" state="$:/othy/quick-tracker/settings!!custom_tog" text="0">
-<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="1"/>
-{{$:/core/images/options-button}}
-</$reveal>
-<$reveal type="match" state="$:/othy/quick-tracker/settings!!custom_tog" text="1">
-<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="0"/>
-{{$:/core/images/list-bullet}}
-</$reveal>
-</$button>
-<$button message="tm-close-tiddler" to="Quick-Tracker">
-<$action-setfield $tiddler="$:/othy/quick-tracker/settings" $field="custom_tog" $value="0"/>
-{{$:/core/images/close-button}}</$button>
-</div>
 
 <$reveal type="match" state="$:/othy/quick-tracker/settings!!custom_tog" text="0">
 

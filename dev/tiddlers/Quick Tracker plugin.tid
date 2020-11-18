@@ -1,5 +1,5 @@
 created: 20201114140321570
-modified: 20201117152550363
+modified: 20201118160934526
 tags: 
 title: Quick Tracker plugin
 type: text/vnd.tiddlywiki
@@ -40,11 +40,10 @@ Things I have to do:
 * add settings to define if, when a priority is deleted, if tasks with that priority take the lower priority, the higher priority, or the default priority (default to lower)
 * apply priority style inside the showItem macro (manager.tid)
 * use priority to sort lists
-* add to customizer a reset button
-* add a standard 3 priorities button to customizer
 * build the short list in the sidebar tracker -> test with priorities
 * insert statistics about task completion
-* set custom color for each priority
+* set custom color for each priority (background + text)
+* set buttons to push up or down a priority in the list
 * define default piority to use
 * change priority by group (checkboxed)
 * write "I want to try it!"

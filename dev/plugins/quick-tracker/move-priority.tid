@@ -1,0 +1,46 @@
+title: $:/othy/quick-tracker/move-priority.js
+type: application/javascript
+module-type: widget
+
+(function() {
+    "use strict";
+
+    var Widget = require("$:/core/modules/widgets/widget.js").widget;
+
+    var MovePriorityWidget = function(parseTreeNode, options) {
+        this.initialise(parseTreeNode, options);
+    };
+
+    MovePriorityWidget.prototype = new Widget();
+
+    MovePriorityWidget.prototype.render = function(parent, nextSibling) {
+        this.computeAttributes();
+        this.execute();
+    }
+
+    MovePriorityWidget.prototype.refresh = function(changedTiddlers) {
+        var changedAttributes = this.computeAttributes();
+        if (changedAttributes["$tiddler"] || changedAttributes["$move"]) {
+            this.refreshSelf();
+            return true;
+        }
+        return this.refreshChildren(changedTiddlers);
+    };
+
+    MovePriorityWidget.prototype.execute = function() {
+        this.actionTiddler = this.getAttribute("$tiddler");
+        this.actionMove = this.getAttribute("$move");
+    };
+
+    MovePriorityWidget.prototype.invokeAction = function(
+        triggeringWidget, event
+    ) {
+        //
+        console.log("move requested");
+        //
+        //
+        return true;
+    };
+
+    exports["move-priority"] = MovePriorityWidget;
+})();

@@ -1,21 +1,37 @@
 created: 20201115111541104
-modified: 20201117105444289
+modified: 20201118162929801
 tags: 
 title: TestTracker
 type: text/vnd.tiddlywiki
 
-$:/othy/quick-tracker/Priority
+\define bla()
+$:/othy/quick-tracker/priority
+\end
 
 $:/othy/quick-tracker/settings
+
+<$set name="maxc" filter="[tag[$:/tags/quick-tracker/priority]count[]add[-1]]">
+<<maxc>>
+<$reveal type="match" text=<<maxc>> stateTitle="$:/othy/quick-tracker/priority 2" stateField="rank">
+blabla reveal
+</$reveal>
+</$set>
 
 
 <$list filter="[tag[$:/tags/quick-tracker/priority]sort[rank]]" variable="item">
 
 <$link to=<<item>>><$transclude tiddler=<<item>> field="name"/></$link> - 
-<$transclude tiddler=<<item>> field="rank"/>
-<$button>
+<$set name="vari" value=<<item>>>
+vari: <<vari>>
+<$transclude tiddler=<<item>> field="rank"/> -
+<$reveal tag="span" type="match" text="-1" stateTitle=<<item>> stateField="rank">
+blabla
+</$reveal>
+</$set>
+-
+<$button class="tc-btn-boxed">
 <$delete-priority $tiddler=<<item>>/>
-del</$button>
+{{$:/core/images/delete-button}}</$button>
 
 </$list>
 

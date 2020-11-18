@@ -2,6 +2,7 @@ title: $:/othy/quick-tracker/settings
 custom_tog: 0
 newtitle:
 priority_def: 0
+priority_beh: 0
 priority_new:
 priority_nb: 0
-shortlist_len: 2
+shortlist_len: 0
